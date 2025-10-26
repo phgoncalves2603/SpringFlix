@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class MovieModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     private String synopsys;
     private String image;
