@@ -1,16 +1,14 @@
 package com.SpringFlix.SpringFlix.model;
 
-import com.SpringFlix.SpringFlix.enums.MovieCategory;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name="Movie_Item")
-@Data
+@Table(name="movie_item")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieModel {
@@ -21,5 +19,4 @@ public class MovieModel {
     private String synopsys;
     private String image;
     private LocalDate releaseDate;
-    private MovieCategory movieCategory;
 }
