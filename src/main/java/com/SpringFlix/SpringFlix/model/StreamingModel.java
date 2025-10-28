@@ -1,17 +1,15 @@
 package com.SpringFlix.SpringFlix.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Data
+@Table(name = "streaming")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+
 public class StreamingModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
