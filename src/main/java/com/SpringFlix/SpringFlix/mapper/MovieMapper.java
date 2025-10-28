@@ -1,5 +1,6 @@
-package com.SpringFlix.SpringFlix.dto;
+package com.SpringFlix.SpringFlix.mapper;
 
+import com.SpringFlix.SpringFlix.dto.MovieDTO;
 import com.SpringFlix.SpringFlix.model.MovieModel;
 
 public class MovieMapper {
@@ -10,7 +11,6 @@ public class MovieMapper {
         movieDTO.setSynoposys(movieModel.getSynopsys());
         movieDTO.setImage(movieModel.getImage());
         movieDTO.setReleaseDate(movieModel.getReleaseDate());
-        movieDTO.setMovieCategory(movieModel.getMovieCategory());
         return movieDTO;
     }
     public MovieModel map(MovieDTO movieDTO){
@@ -20,7 +20,6 @@ public class MovieMapper {
         movieModel.setSynopsys(movieDTO.getSynoposys());
         movieModel.setImage(movieDTO.getImage());
         movieModel.setReleaseDate(movieDTO.getReleaseDate());
-        movieModel.setMovieCategory(movieDTO.getMovieCategory());
         return movieModel;
     }
 
