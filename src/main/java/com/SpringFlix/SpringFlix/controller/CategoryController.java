@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequestMapping("/category")
 @RequiredArgsConstructor // Lombok insure the dependency injection will happen
 public class CategoryController {
-    CategoryService categoryService;
+    final CategoryService categoryService;
     @GetMapping()
     public ResponseEntity<List<CategoryDTO>> getAllCategories(){
         List <CategoryModel> categories = categoryService.findAll();

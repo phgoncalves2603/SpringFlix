@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
-    CategoryRepository categoryRepository;
+    final CategoryRepository categoryRepository;
 
     public List<CategoryModel> findAll(){
         return categoryRepository.findAll();
