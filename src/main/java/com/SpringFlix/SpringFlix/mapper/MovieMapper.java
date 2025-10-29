@@ -4,7 +4,7 @@ import com.SpringFlix.SpringFlix.dto.MovieDTO;
 import com.SpringFlix.SpringFlix.model.MovieModel;
 
 public class MovieMapper {
-    public MovieDTO map(MovieModel movieModel){
+    public static MovieDTO map(MovieModel movieModel){
         MovieDTO movieDTO = new MovieDTO();
         movieDTO.setId(movieDTO.getId());
         movieDTO.setTitle(movieModel.getTitle());
@@ -13,7 +13,7 @@ public class MovieMapper {
         movieDTO.setReleaseDate(movieModel.getReleaseDate());
         return movieDTO;
     }
-    public MovieModel map(MovieDTO movieDTO){
+    public static MovieModel map(MovieDTO movieDTO){
         MovieModel movieModel = new MovieModel();
         movieModel.setId(movieDTO.getId());
         movieModel.setTitle(movieDTO.getTitle());
