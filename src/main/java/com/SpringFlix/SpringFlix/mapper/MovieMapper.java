@@ -8,18 +8,26 @@ public class MovieMapper {
         MovieDTO movieDTO = new MovieDTO();
         movieDTO.setId(movieDTO.getId());
         movieDTO.setTitle(movieModel.getTitle());
-        movieDTO.setSynoposys(movieModel.getSynopsys());
+        movieDTO.setDescription(movieModel.getDescription());
         movieDTO.setImage(movieModel.getImage());
+        movieDTO.setRating(movieModel.getRating());
         movieDTO.setReleaseDate(movieModel.getReleaseDate());
+        movieDTO.setCreatedAt(movieModel.getCreatedAt());
+        movieDTO.setUpdatedAt(movieModel.getUpdatedAt());
         return movieDTO;
     }
     public static MovieModel map(MovieDTO movieDTO){
         MovieModel movieModel = new MovieModel();
         movieModel.setId(movieDTO.getId());
         movieModel.setTitle(movieDTO.getTitle());
-        movieModel.setSynopsys(movieDTO.getSynoposys());
+        movieModel.setDescription(movieDTO.getDescription());
         movieModel.setImage(movieDTO.getImage());
+        movieModel.setRating(movieDTO.getRating());
         movieModel.setReleaseDate(movieDTO.getReleaseDate());
+        movieModel.setCreatedAt(movieDTO.getCreatedAt());
+        movieModel.setUpdatedAt(movieDTO.getUpdatedAt());
+
+
         return movieModel;
     }
 
