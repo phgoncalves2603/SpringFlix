@@ -55,6 +55,14 @@ public class MovieController {
                 .body("Movie id: "+id+" Was not found");
 
     }
+    @PutMapping
+    public ResponseEntity<MovieDTO> update(@RequestBody MovieDTO updatedMovie){
+        Optional<MovieModel> updated = service.update(MovieMapper.map(updatedMovie));
+        if(updated.isPresent()){
+            return ResponseEntity.ok(MovieMapper.map(updated.get()));
+        }
+        return ResponseEntity.notFound().build();
+    }
 
 
 }
