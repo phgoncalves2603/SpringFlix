@@ -16,4 +16,4 @@ spring:
     enabled: true
 springflix:
   security:
-    secret:${SECRET}
+    secret: ${SECRET}
