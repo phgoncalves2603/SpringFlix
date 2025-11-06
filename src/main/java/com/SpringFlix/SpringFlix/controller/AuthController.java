@@ -8,6 +8,7 @@ import com.SpringFlix.SpringFlix.dto.UsersDTO;
 import com.SpringFlix.SpringFlix.mapper.UsersMapper;
 import com.SpringFlix.SpringFlix.model.UsersModel;
 import com.SpringFlix.SpringFlix.service.UsersService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,16 +36,24 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<TokenDTO> login(@RequestBody LoginDTO loginDTO){
-        UsernamePasswordAuthenticationToken userAndPass = new UsernamePasswordAuthenticationToken(loginDTO.getEmail(),loginDTO.getPassword());
-        Authentication authenticate = authenticationManager.authenticate(userAndPass);
+    public ResponseEntity<TokenDTO> login(@RequestBody LoginDTO request) {
+            try {
+                UsernamePasswordAuthenticationToken userAndPass = new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword());
+                Authentication authenticate = authenticationManager.authenticate(userAndPass);
 
-        UsersModel user = (UsersModel) authenticate.getPrincipal();
+                UsersModel user = (UsersModel) authenticate.getPrincipal();
 
-        String token = tokenService.GenerateToken(user);
+                String token = tokenService.GenerateToken(user);
 
-        return ResponseEntity.ok(new TokenDTO(token));
+                TokenDTO t = new TokenDTO(token);
+                System.out.println(token);
+                return ResponseEntity.ok().body(t);
+            }catch (Exception e){
+                System.out.println(e.getMessage()+"\n"+e.getCause());
 
+            }
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new TokenDTO(""));
 
     }
 
