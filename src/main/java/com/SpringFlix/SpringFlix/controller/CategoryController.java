@@ -5,6 +5,7 @@ import com.SpringFlix.SpringFlix.dto.CategoryDTO;
 import com.SpringFlix.SpringFlix.mapper.CategoryMapper;
 import com.SpringFlix.SpringFlix.model.CategoryModel;
 import com.SpringFlix.SpringFlix.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ public class CategoryController {
         }
     }
     @PostMapping()
-    public ResponseEntity<String> addCategory(@RequestBody CategoryDTO categoryDTO){
+    public ResponseEntity<String> addCategory( @Valid @RequestBody CategoryDTO categoryDTO){
         categoryService.save(CategoryMapper.map(categoryDTO));
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Category Created Successfully");
