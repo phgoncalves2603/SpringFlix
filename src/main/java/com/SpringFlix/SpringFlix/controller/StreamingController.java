@@ -5,6 +5,7 @@ import com.SpringFlix.SpringFlix.dto.StreamingDTO;
 import com.SpringFlix.SpringFlix.mapper.StreamingMapper;
 import com.SpringFlix.SpringFlix.model.StreamingModel;
 import com.SpringFlix.SpringFlix.service.StreamingService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class StreamingController {
                 .body("Streaming id: "+id+" Not Found");
     }
     @PostMapping
-    public ResponseEntity<String> add(@RequestBody StreamingDTO streamingDTO){
+    public ResponseEntity<String> add(@Valid @RequestBody StreamingDTO streamingDTO){
         service.save(StreamingMapper.map(streamingDTO));
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Streaming Created Successfully");
