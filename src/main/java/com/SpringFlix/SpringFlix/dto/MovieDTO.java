@@ -1,6 +1,7 @@
 package com.SpringFlix.SpringFlix.dto;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MovieDTO {
     private long id;
+    @NotEmpty(message = "Movie name is needed")
     private String title;
     private String description;
     private String image;
