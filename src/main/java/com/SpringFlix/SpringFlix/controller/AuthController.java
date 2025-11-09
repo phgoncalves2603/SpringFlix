@@ -5,6 +5,7 @@ import com.SpringFlix.SpringFlix.config.TokenService;
 import com.SpringFlix.SpringFlix.dto.LoginDTO;
 import com.SpringFlix.SpringFlix.dto.TokenDTO;
 import com.SpringFlix.SpringFlix.dto.UsersDTO;
+import com.SpringFlix.SpringFlix.exception.UsernameOrPasswordException;
 import com.SpringFlix.SpringFlix.mapper.UsersMapper;
 import com.SpringFlix.SpringFlix.model.UsersModel;
 import com.SpringFlix.SpringFlix.service.UsersService;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,12 +50,9 @@ public class AuthController {
                 TokenDTO t = new TokenDTO(token);
                 System.out.println(token);
                 return ResponseEntity.ok().body(t);
-            }catch (Exception e){
-                System.out.println(e.getMessage()+"\n"+e.getCause());
-
+            }catch (BadCredentialsException bc){
+                throw new UsernameOrPasswordException("Username Or Password Invalid");
             }
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(new TokenDTO(""));
 
     }
 
