@@ -4,6 +4,7 @@ import com.SpringFlix.SpringFlix.dto.MovieDTO;
 import com.SpringFlix.SpringFlix.mapper.MovieMapper;
 import com.SpringFlix.SpringFlix.model.MovieModel;
 import com.SpringFlix.SpringFlix.service.MovieService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class MovieController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> add(@RequestBody MovieDTO movieDTO){
+    public ResponseEntity<String> add(@Valid @RequestBody MovieDTO movieDTO){
         service.save(MovieMapper.map(movieDTO));
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body("Movie Created Successfully");
