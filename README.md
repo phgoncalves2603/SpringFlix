@@ -3,7 +3,7 @@
 
 SpringFlix is a **Spring Boot** application for managing movies and streaming services, featuring **JWT authentication** and **Swagger API documentation**.
 
-## Database Schema
+## Database Diagram
 ![App Screenshot](DatabaseSchema.png)
 
 ##  Technologies
